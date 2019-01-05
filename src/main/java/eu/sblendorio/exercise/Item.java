@@ -21,8 +21,8 @@ public class Item {
     }
 
     public BigDecimal getSalesTax() {
-        BigDecimal salesTaxRate = category.getBasicSalesTaxRate().add(imported ? category.getImportDutyRate() : ZERO);
-        BigDecimal salesTax = price.multiply(salesTaxRate.divide(valueOf(100)));
+        final BigDecimal salesTaxRate = category.getBasicSalesTaxRate().add(imported ? category.getImportDutyRate() : ZERO);
+        final BigDecimal salesTax = price.multiply(salesTaxRate.divide(valueOf(100)));
 
         return salesTax
                 .multiply(valueOf(20))
